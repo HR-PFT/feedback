@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Training Program Evaluation Form - HLL Lifecare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', 'Noto Sans Malayalam', sans-serif; }
+    .star-btn { transition: color 0.15s ease, transform 0.1s ease; }
+    .star-btn:hover { transform: scale(1.2); }
+    /* Prevents page scrolling while signing on touchscreen phones */
+    #signaturePad { 
+      touch-action: none; 
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen py-3 sm:py-8 px-2 sm:px-4 text-slate-800 overflow-x-hidden">
+  <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden w-full max-w-full">
+    
+    <!-- Official HLL Header (Larger Title Typography & Zero Badge Overlap) -->
+    <div class="bg-slate-900 px-4 sm:px-6 pt-3.5 pb-5 sm:pb-6 text-white text-center border-b-4 border-indigo-600">
+      <!-- Top Bar for Document Code Badge -->
+      <div class="flex justify-end mb-1.5">
+        <span class="text-[10px] sm:text-xs font-mono bg-slate-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-slate-300 border border-slate-700">
+          PAA:15/R03
+        </span>
+      </div>
+      <p class="text-xs sm:text-sm md:text-base font-medium text-slate-300 tracking-wide">എച്ച് എൽ എൽ ലൈഫ് കെയർ ലിമിറ്റഡ്</p>
+      <h1 class="text-base sm:text-lg md:text-xl font-bold text-white tracking-wide mt-0.5">HLL LIFECARE LIMITED</h1>
+      <p class="text-[11px] sm:text-xs text-indigo-300 mt-1">പേരൂർക്കട, തിരുവനന്തപുരം | Peroorkada, Thiruvananthapuram</p>
+      <div class="mt-3.5 pt-3.5 border-t border-slate-800">
+        <h2 class="text-base sm:text-lg md:text-xl font-bold text-amber-400 leading-snug">പരിശീലന പരിപാടിയെ കുറിച്ചുള്ള വിലയിരുത്തൽ ഫോം</h2>
+        <p class="text-sm sm:text-base md:text-lg font-semibold text-slate-200 mt-1">Training Program Evaluation Questionnaire</p>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1: EVALUATION FORM                                               -->
+    <!-- ===================================================================== -->
+    <form id="feedbackForm" class="p-3.5 sm:p-6 md:p-8 space-y-5 sm:space-y-8">
+      
+      <!-- Section A: Employee & Training Metadata -->
+      <div class="bg-slate-50 p-3.5 sm:p-5 rounded-xl border border-slate-200 space-y-3.5 sm:space-y-4">
+        <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2">
+          പൊതു വിവരങ്ങൾ / General Details
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+          <div class="w-full min-w-0">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">പേര് / Name *</label>
+            <input type="text" name="name" required placeholder="Enter full name"
+              class="w-full border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+          </div>
+          <div class="w-full min-w-0">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">കാർഡ് നമ്പർ / Card No. *</label>
+            <input type="text" name="cardNo" required placeholder="Employee Card No."
+              class="w-full border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+          <div class="w-full min-w-0">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">സെക്ഷൻ / Section *</label>
+            <input type="text" name="section" required placeholder="Department / Section"
+              class="w-full border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+          </div>
+          <div class="w-full min-w-0">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">തീയതി / Date *</label>
+            <input type="date" name="trainingDate" id="trainingDateInput" required
+              class="w-full border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-indigo-500 outline-none">
+          </div>
+          <div class="w-full min-w-0">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">പരിശീലന വിഷയം / Training Topic *</label>
+            <select name="trainingName" id="trainingNameSelect" required disabled
+              class="w-full border border-slate-300 rounded-lg p-2.5 bg-slate-200 text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none cursor-not-allowed">
+              <option value="">ആദ്യം തീയതി തിരഞ്ഞെടുക്കുക / Select Date First</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section B: Evaluation Questions -->
+      <div class="space-y-4 sm:space-y-6">
+        <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200 pb-2">
+          വിലയിരുത്തൽ ചോദ്യങ്ങൾ / Evaluation Questions
+        </h2>
+
+        <!-- Q1 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm rating-group">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            1. താങ്കൾ ഈ പരിപാടിയെ സമഗ്രമായി എങ്ങനെ വിലയിരുത്തുന്നു?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3 sm:mb-4">How do you rate this training program overall?</p>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-slate-50 p-3 sm:p-3.5 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between sm:justify-start gap-2">
+              <div class="flex gap-1.5 text-2xl sm:text-3xl cursor-pointer">
+                <span class="star-btn text-slate-300 select-none" data-val="1">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="2">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="3">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="4">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="5">★</span>
+              </div>
+              <span class="text-xs sm:text-sm font-medium text-indigo-600 ml-1.5 rating-label">തിരഞ്ഞെടുക്കുക / Select</span>
+            </div>
+            <select name="q1" required class="border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64 min-w-0">
+              <option value="">തിരഞ്ഞെടുക്കുക / Select</option>
+              <option value="1 — മോശം / Poor">1 — മോശം / Poor</option>
+              <option value="2 — തൃപ്തികരം / Satisfactory">2 — തൃപ്തികരം / Satisfactory</option>
+              <option value="3 — നല്ലത് / Good">3 — നല്ലത് / Good</option>
+              <option value="4 — വളരെ നല്ലത് / Very Good">4 — വളരെ നല്ലത് / Very Good</option>
+              <option value="5 — ശ്രേഷ്ഠം / Excellent">5 — ശ്രേഷ്ഠം / Excellent</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm rating-group">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            2. പരിശീലന പരിപാടിയുടെ ഉള്ളടക്കത്തെ എങ്ങനെ വിലയിരുത്തുന്നു?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3 sm:mb-4">How do you rate the content of the training program?</p>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-slate-50 p-3 sm:p-3.5 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between sm:justify-start gap-2">
+              <div class="flex gap-1.5 text-2xl sm:text-3xl cursor-pointer">
+                <span class="star-btn text-slate-300 select-none" data-val="1">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="2">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="3">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="4">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="5">★</span>
+              </div>
+              <span class="text-xs sm:text-sm font-medium text-indigo-600 ml-1.5 rating-label">തിരഞ്ഞെടുക്കുക / Select</span>
+            </div>
+            <select name="q2" required class="border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64 min-w-0">
+              <option value="">തിരഞ്ഞെടുക്കുക / Select</option>
+              <option value="1 — മോശം / Poor">1 — മോശം / Poor</option>
+              <option value="2 — തൃപ്തികരം / Satisfactory">2 — തൃപ്തികരം / Satisfactory</option>
+              <option value="3 — നല്ലത് / Good">3 — നല്ലത് / Good</option>
+              <option value="4 — വളരെ നല്ലത് / Very Good">4 — വളരെ നല്ലത് / Very Good</option>
+              <option value="5 — ശ്രേഷ്ഠം / Excellent">5 — ശ്രേഷ്ഠം / Excellent</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm rating-group">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            3. പരിശീലന പരിപാടി അതിന്റെ ലക്ഷ്യം കൈവരിക്കുന്നതിൽ പൂർണ്ണമായി വിജയിച്ചു എന്നു താങ്കൾക്ക് അഭിപ്രായമുണ്ടോ ?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3 sm:mb-4">Do you think the training program fully succeeded in achieving its goal?</p>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-slate-50 p-3 sm:p-3.5 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between sm:justify-start gap-2">
+              <div class="flex gap-1.5 text-2xl sm:text-3xl cursor-pointer">
+                <span class="star-btn text-slate-300 select-none" data-val="1">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="2">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="3">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="4">★</span>
+              </div>
+              <span class="text-xs sm:text-sm font-medium text-indigo-600 ml-1.5 rating-label">തിരഞ്ഞെടുക്കുക / Select</span>
+            </div>
+            <select name="q3" required class="border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64 min-w-0">
+              <option value="">തിരഞ്ഞെടുക്കുക / Select</option>
+              <option value="1 — തീരെ ഇല്ല / Not at all">1 — തീരെ ഇല്ല / Not at all</option>
+              <option value="2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately">2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately</option>
+              <option value="3 — നല്ല രീതിയിൽ / Well">3 — നല്ല രീതിയിൽ / Well</option>
+              <option value="4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively">4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm rating-group">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            4. താങ്കൾക്ക് തൊഴിൽ സ്ഥലത്ത് മെച്ചപ്പെട്ട പ്രവർത്തനം കാഴ്ചവെയ്ക്കാൻ ഈ പരിപാടി സഹായമാകുമോ?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3 sm:mb-4">Will this program help you improve your performance at the workplace?</p>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-slate-50 p-3 sm:p-3.5 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between sm:justify-start gap-2">
+              <div class="flex gap-1.5 text-2xl sm:text-3xl cursor-pointer">
+                <span class="star-btn text-slate-300 select-none" data-val="1">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="2">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="3">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="4">★</span>
+              </div>
+              <span class="text-xs sm:text-sm font-medium text-indigo-600 ml-1.5 rating-label">തിരഞ്ഞെടുക്കുക / Select</span>
+            </div>
+            <select name="q4" required class="border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64 min-w-0">
+              <option value="">തിരഞ്ഞെടുക്കുക / Select</option>
+              <option value="1 — തീരെ ഇല്ല / Not at all">1 — തീരെ ഇല്ല / Not at all</option>
+              <option value="2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately">2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately</option>
+              <option value="3 — നല്ല രീതിയിൽ / Well">3 — നല്ല രീതിയിൽ / Well</option>
+              <option value="4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively">4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm rating-group">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            5. പരിപാടിയിൽ പ്രതിപാദിച്ച വിഷയത്തിന് താങ്കളുടെ തൊഴിൽ മേഖലയിൽ എന്തെങ്കിലും പ്രസക്തിയുണ്ടോ?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3 sm:mb-4">Is the topic covered in the program relevant to your area of work?</p>
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 bg-slate-50 p-3 sm:p-3.5 rounded-lg border border-slate-200">
+            <div class="flex items-center justify-between sm:justify-start gap-2">
+              <div class="flex gap-1.5 text-2xl sm:text-3xl cursor-pointer">
+                <span class="star-btn text-slate-300 select-none" data-val="1">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="2">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="3">★</span>
+                <span class="star-btn text-slate-300 select-none" data-val="4">★</span>
+              </div>
+              <span class="text-xs sm:text-sm font-medium text-indigo-600 ml-1.5 rating-label">തിരഞ്ഞെടുക്കുക / Select</span>
+            </div>
+            <select name="q5" required class="border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-xs sm:text-sm focus:ring-2 focus:ring-indigo-500 outline-none w-full sm:w-64 min-w-0">
+              <option value="">തിരഞ്ഞെടുക്കുക / Select</option>
+              <option value="1 — തീരെ ഇല്ല / Not at all">1 — തീരെ ഇല്ല / Not at all</option>
+              <option value="2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately">2 — തരക്കേടില്ലാത്ത രീതിയിൽ / Moderately</option>
+              <option value="3 — നല്ല രീതിയിൽ / Well">3 — നല്ല രീതിയിൽ / Well</option>
+              <option value="4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively">4 — ഏറ്റവും നല്ല രീതിയിൽ / Extensively</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            6. ഈ വിഷയത്തിൽ താങ്കൾക്ക് കൂടുതൽ പരിശീലനം ആവശ്യമുണ്ടോ?
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3">Do you require further training on this subject?</p>
+          <div class="flex flex-wrap gap-8 mt-3">
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="radio" name="q6" value="ഉണ്ട് / Yes" required class="text-indigo-600 w-4 h-4">
+              <span class="ml-2 text-slate-800 text-sm sm:text-base font-bold">ഉണ്ട് / Yes</span>
+            </label>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="radio" name="q6" value="ഇല്ല / No" required class="text-indigo-600 w-4 h-4">
+              <span class="ml-2 text-slate-800 text-sm sm:text-base font-bold">ഇല്ല / No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            7. പരിശീലന പരിപാടിയുടെ നല്ല വശങ്ങളെയും കുറവുകളെയും താഴെ/ചുവടെ രേഖപ്പെടുത്തുന്നു.
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3">Please note down the positive aspects and shortcomings of the training program.</p>
+          <textarea name="q7" rows="3" placeholder="രേഖപ്പെടുത്തുക... / Write your comments here..."
+            class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 text-slate-800 text-sm sm:text-base focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+
+        <!-- Q8 -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+          <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+            8. താങ്കളുടെ അഭിപ്രായങ്ങളും നിർദ്ദേശങ്ങളും
+          </label>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1 mb-3">Your general opinions and suggestions</p>
+          <textarea name="q8" rows="3" placeholder="രേഖപ്പെടുത്തുക... / Write your suggestions here..."
+            class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 text-slate-800 text-sm sm:text-base focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+        </div>
+      </div>
+
+      <!-- Digital Signature Pad -->
+      <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+        <label class="block text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-snug">
+          ഡിജിറ്റൽ ഒപ്പ് / Digital Signature *
+        </label>
+        <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5 mb-2.5">Please sign within the box below</p>
+        <div class="border-2 border-dashed border-slate-300 rounded-lg overflow-hidden bg-slate-50 w-full h-36 sm:h-44 relative">
+          <canvas id="signaturePad" class="w-full h-full cursor-crosshair block"></canvas>
+        </div>
+        <div class="flex justify-between items-center mt-2.5">
+          <span class="text-xs sm:text-sm text-slate-500 font-medium">Sign using finger or mouse</span>
+          <button type="button" id="clearBtn" class="text-xs sm:text-sm text-rose-600 hover:underline font-bold">Clear Signature</button>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl shadow-lg transition text-base sm:text-lg">
+        സമർപ്പിക്കുക / Submit Feedback
+      </button>
+
+      <p id="status" class="text-center text-sm font-medium mt-2 hidden"></p>
+    </form>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 2: THANK YOU CONFIRMATION SCREEN (BILINGUAL)                     -->
+    <!-- ===================================================================== -->
+    <div id="thankYouScreen" class="hidden p-6 sm:p-12 text-center space-y-5 sm:space-y-6">
+      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm text-2xl sm:text-3xl">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      
+      <div class="space-y-2">
+        <h2 class="text-lg sm:text-2xl font-bold text-slate-900">
+          നിങ്ങളുടെ വിലയേറിയ അഭിപ്രായങ്ങൾക്ക് നന്ദി!
+        </h2>
+        <h3 class="text-sm sm:text-lg font-semibold text-indigo-700">
+          Thank you for your valuable feedback!
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto pt-1">
+          നിങ്ങളുടെ പരിശീലന വിലയിരുത്തൽ വിജയകരമായി രേഖപ്പെടുത്തിയിരിക്കുന്നു. HLL ലൈഫ്കെയറിന്റെ പരിശീലന നിലവാരം ഉയർത്താൻ ഇത് സഹായിക്കും.
+          <br>
+          <span class="block mt-1">Your training evaluation has been recorded successfully under Employee Card <strong id="confirmCardNo" class="text-slate-800">#---</strong>.</span>
+        </p>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 max-w-xs mx-auto">
+        <button type="button" onclick="showFreshForm()" 
+          class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-6 rounded-xl shadow transition text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>മറ്റൊരു ഫീഡ്‌ബാക്ക് സമർപ്പിക്കുക / Submit Another</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwBCJHEZ4z1hNc6UVfqcsrXKowJ0Z1oHPckiClcB7t5g2TtSj5I2RnQcsAn9UVLK5lt/exec";
+
+    let allScheduledTopics = [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTodayDateInput();
+      fetchScheduledTopics();
+      resizeCanvas();
+    });
+
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+    });
+
+    function setTodayDateInput() {
+      const todayStr = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('trainingDateInput');
+      dateInput.value = todayStr;
+      return todayStr;
+    }
+
+    function fetchScheduledTopics() {
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(saveTopics)
+          .withFailureHandler(() => saveTopics("[]"))
+          .getTopics();
+      } else {
+        fetch(WEB_APP_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ action: 'getTopics' })
+        })
+        .then(r => r.json())
+        .then(topics => saveTopics(JSON.stringify(topics)))
+        .catch(() => saveTopics("[]"));
+      }
+
+      function saveTopics(jsonStr) {
+        try { allScheduledTopics = JSON.parse(jsonStr); } catch (e) { allScheduledTopics = []; }
+        
+        const currentDateStr = document.getElementById('trainingDateInput').value || setTodayDateInput();
+        filterTopicsForDate(currentDateStr);
+      }
+    }
+
+    function filterTopicsForDate(selectedDate) {
+      const select = document.getElementById('trainingNameSelect');
+
+      if (!selectedDate) {
+        select.disabled = true;
+        select.className = "w-full border border-slate-300 rounded-lg p-2.5 bg-slate-200 text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none cursor-not-allowed";
+        select.innerHTML = '<option value="">ആദ്യം തീയതി തിരഞ്ഞെടുക്കുക / Select Date First</option>';
+        return;
+      }
+
+      const matchingTopics = allScheduledTopics.filter(t => t.date === selectedDate);
+
+      if (matchingTopics.length === 0) {
+        select.disabled = true;
+        select.className = "w-full border border-slate-300 rounded-lg p-2.5 bg-slate-200 text-slate-500 text-sm focus:ring-2 focus:ring-indigo-500 outline-none cursor-not-allowed";
+        select.innerHTML = '<option value="">ഈ തീയതിയിൽ പരിശീലനം ലഭ്യമല്ല / No topics found for this date</option>';
+        return;
+      }
+
+      select.disabled = false;
+      select.className = "w-full border border-slate-300 rounded-lg p-2.5 bg-white text-slate-800 text-sm focus:ring-2 focus:ring-indigo-500 outline-none";
+      select.innerHTML = '<option value="">തിരഞ്ഞെടുക്കുക / Select Topic...</option>' +
+        matchingTopics.map(t => `<option value="${t.name}">${t.name}</option>`).join('');
+    }
+
+    document.getElementById('trainingDateInput').addEventListener('change', function() {
+      filterTopicsForDate(this.value);
+    });
+
+    document.querySelectorAll('.rating-group').forEach(group => {
+      const stars = group.querySelectorAll('.star-btn');
+      const select = group.querySelector('select');
+      const labelEl = group.querySelector('.rating-label');
+
+      stars.forEach(star => {
+        star.addEventListener('click', () => {
+          const val = parseInt(star.dataset.val);
+          select.selectedIndex = val;
+          updateStarsAndLabel(val);
+        });
+
+        star.addEventListener('mouseenter', () => {
+          const val = parseInt(star.dataset.val);
+          stars.forEach(s => {
+            const starVal = parseInt(s.dataset.val);
+            if (starVal <= val) {
+              s.classList.add('text-amber-400');
+              s.classList.remove('text-slate-300');
+            } else {
+              s.classList.add('text-slate-300');
+              s.classList.remove('text-amber-400');
+            }
+          });
+        });
+      });
+
+      group.querySelector('.flex.gap-1\\.5').addEventListener('mouseleave', () => {
+        updateStarsAndLabel(select.selectedIndex);
+      });
+
+      select.addEventListener('change', () => {
+        updateStarsAndLabel(select.selectedIndex);
+      });
+
+      function updateStarsAndLabel(val) {
+        stars.forEach(s => {
+          const starVal = parseInt(s.dataset.val);
+          if (starVal <= val && val > 0) {
+            s.classList.remove('text-slate-300');
+            s.classList.add('text-amber-400');
+          } else {
+            s.classList.remove('text-amber-400');
+            s.classList.add('text-slate-300');
+          }
+        });
+
+        if (val > 0) {
+          labelEl.textContent = select.options[val].text;
+          labelEl.className = "text-xs font-semibold text-emerald-700 ml-1.5 rating-label";
+        } else {
+          labelEl.textContent = "തിരഞ്ഞെടുക്കുക / Select";
+          labelEl.className = "text-xs font-medium text-indigo-600 ml-1.5 rating-label";
+        }
+      }
+    });
+
+    // =======================================================================
+    // 1:1 DYNAMIC RESOLUTION SIGNATURE PAD
+    // =======================================================================
+    const canvas = document.getElementById('signaturePad');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = rect.width * ratio;
+      canvas.height = rect.height * ratio;
+      ctx.scale(ratio, ratio);
+
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    }
+
+    const getPos = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches && e.touches.length > 0 ? e.touches[0] : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0] : e);
+      return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+      };
+    };
+
+    const startDraw = (e) => {
+      isDrawing = true;
+      const pos = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      if (e.cancelable) e.preventDefault();
+    };
+
+    const draw = (e) => {
+      if (!isDrawing) return;
+      const pos = getPos(e);
+      ctx.lineTo(pos.x, pos.y);
+      ctx.stroke();
+      if (e.cancelable) e.preventDefault();
+    };
+
+    const endDraw = (e) => {
+      isDrawing = false;
+      if (e && e.cancelable) e.preventDefault();
+    };
+
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('touchstart', startDraw, { passive: false });
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('touchend', endDraw, { passive: false });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    });
+
+    // Form Submission Handler
+    document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const status = document.getElementById('status');
+      const cardNoSubmitted = this.cardNo.value.trim();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting / സമർപ്പിക്കുന്നു...';
+
+      const formData = {
+        name: this.name.value.trim(),
+        cardNo: cardNoSubmitted,
+        section: this.section.value.trim(),
+        trainingDate: this.trainingDate.value,
+        trainingName: this.trainingName.value,
+        q1: this.q1.value,
+        q2: this.q2.value,
+        q3: this.q3.value,
+        q4: this.q4.value,
+        q5: this.q5.value,
+        q6: this.q6.value,
+        q7: this.q7.value.trim() || 'ഒന്നുമില്ല / None',
+        q8: this.q8.value.trim() || 'ഒന്നുമില്ല / None',
+        signature: canvas.toDataURL('image/png')
+      };
+
+      try {
+        if (typeof google !== 'undefined' && google.script && google.script.run) {
+          google.script.run
+            .withSuccessHandler(() => onSuccess(cardNoSubmitted))
+            .withFailureHandler(onError)
+            .saveFeedback(formData);
+        } else {
+          const response = await fetch(WEB_APP_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(formData)
+          });
+          const result = await response.json();
+          if (result.success) onSuccess(cardNoSubmitted);
+          else throw new Error(result.error || "Submission failed");
+        }
+      } catch (err) {
+        onError(err.message);
+      }
+
+      function onSuccess(cardNo) {
+        document.getElementById('confirmCardNo').textContent = '#' + cardNo;
+        document.getElementById('feedbackForm').classList.add('hidden');
+        document.getElementById('thankYouScreen').classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'സമർപ്പിക്കുക / Submit Feedback';
+      }
+
+      function onError(err) {
+        status.textContent = 'Error: ' + err;
+        status.className = 'text-center text-sm font-medium mt-3 text-rose-600 block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'സമർപ്പിക്കുക / Submit Feedback';
+      }
+    });
+
+    function showFreshForm() {
+      document.getElementById('feedbackForm').reset();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#0f172a';
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      const todayStr = setTodayDateInput();
+      filterTopicsForDate(todayStr);
+
+      document.querySelectorAll('.star-btn').forEach(s => {
+        s.classList.remove('text-amber-400');
+        s.classList.add('text-slate-300');
+      });
+      document.querySelectorAll('.rating-label').forEach(l => {
+        l.textContent = "തിരഞ്ഞെടുക്കുക / Select";
+        l.className = "text-xs font-medium text-indigo-600 ml-1.5 rating-label";
+      });
+
+      document.getElementById('status').classList.add('hidden');
+      document.getElementById('thankYouScreen').classList.add('hidden');
+      document.getElementById('feedbackForm').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
